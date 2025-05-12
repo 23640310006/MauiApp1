@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.RenkSecimiSayfası"
+             Title="RenkSecimiSayfası">
+
+    <Grid RowDefinitions="*,*" RowSpacing="10" Padding="20">
+
+        <!-- ÜST KISIM (Renk Seçici) -->
+        <Frame Grid.Row="0" 
+               CornerRadius="20"
+               BackgroundColor="#1E1E1E"
+               Padding="15"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill">
+
+            <StackLayout Spacing="15">
+                <!-- Başlık -->
+                <Label Text="Renk Seçici" 
+                       FontSize="20"
+                       HorizontalOptions="Center"
+                       TextColor="White"/>
+
+                <!-- Kırmızı Slider -->
+                <StackLayout Spacing="5">
+                    <Label x:Name="RedLabel" 
+                           Text="Kırmızı Ton: 00" 
+                           TextColor="White"/>
+                    <Slider x:Name="RedSlider" 
+                            Minimum="0" 
+                            Maximum="255" 
+                            ThumbColor="Red"
+                            MinimumTrackColor="Red"
+                            ValueChanged="OnSliderValueChanged"/>
+                </StackLayout>
+
+                <!-- Yeşil Slider -->
+                <StackLayout Spacing="5">
+                    <Label x:Name="GreenLabel" 
+                           Text="Yeşil Ton: 00" 
+                           TextColor="White"/>
+                    <Slider x:Name="GreenSlider" 
+                            Minimum="0" 
+                            Maximum="255" 
+                            ThumbColor="Green"
+                            MinimumTrackColor="Green"
+                            ValueChanged="OnSliderValueChanged"/>
+                </StackLayout>
+
+                <!-- Mavi Slider -->
+                <StackLayout Spacing="5">
+                    <Label x:Name="BlueLabel" 
+                           Text="Mavi Ton: 00" 
+                           TextColor="White"/>
+                    <Slider x:Name="BlueSlider" 
+                            Minimum="0" 
+                            Maximum="255" 
+                            ThumbColor="Blue"
+                            MinimumTrackColor="Blue"
+                            ValueChanged="OnSliderValueChanged"/>
+                </StackLayout>
+
+                <!-- Hex Kodu Kopyalama Butonu -->
+                <Frame CornerRadius="10"
+                       BackgroundColor="#333333"
+                       Padding="10"
+                       HorizontalOptions="Center">
+                    <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Label x:Name="HexLabel" 
+                               Text="#000000" 
+                               FontSize="16"
+                               TextColor="White"
+                               VerticalOptions="Center"/>
+                        <Button Text="Kopyala" 
+                                Clicked="OnCopyClicked"
+                                BackgroundColor="#555555"
+                                TextColor="White"
+                                CornerRadius="5"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Frame>
+
+        <!-- ALT KISIM (Mavi Kutu) -->
+        <Frame 
+               x:Name="BottomFrame"
+               Grid.Row="1" 
+               CornerRadius="20"
+               BackgroundColor="#000000"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill"/>
+        
+    </Grid>
+
+
+
+
+
+</ContentPage>

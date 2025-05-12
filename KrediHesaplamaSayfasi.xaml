@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.KrediHesaplamaSayfasi"
+             Title="KrediHesaplamaSayfasi">
+
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
+
+            <!-- Picker (Ortalanmış) -->
+            <Picker x:Name="KrediPicker"
+                    Title="Kredi Türü Seçiniz" 
+                    HorizontalOptions="Center"
+                    WidthRequest="300">
+                <Picker.Items>
+                    <x:String>İhtiyaç Kredisi</x:String>
+                    <x:String>Konut Kredisi</x:String>
+                    <x:String>Taşıt Kredisi</x:String>
+                    <x:String>Ticari Kredi</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <!-- Kredi Tutarı -->
+            <HorizontalStackLayout Spacing="10" Padding="10,0,0,0">
+                <Label Text="Kredi Tutarı (TL):" 
+                       VerticalOptions="Center" 
+                       FontSize="16"
+                       WidthRequest="150"/>
+                <Entry x:Name="AmountEntry" 
+                       Keyboard="Numeric"
+                       Placeholder="Örn: 100000"
+                       WidthRequest="200"
+                       HorizontalOptions="Start"/>
+            </HorizontalStackLayout>
+
+            <!-- Faiz Oranı -->
+            <HorizontalStackLayout Spacing="10" Padding="10,0,0,0">
+                <Label Text="Faiz Oranı (%):" 
+                       VerticalOptions="Center" 
+                       FontSize="16"
+                       WidthRequest="150"/>
+                <Entry x:Name="InterestEntry" 
+                       Keyboard="Numeric"
+                       Placeholder="Örn: 1.5"
+                       WidthRequest="200"
+                       HorizontalOptions="Start"/>
+            </HorizontalStackLayout>
+
+            <!-- Vade -->
+            <HorizontalStackLayout Spacing="10" Padding="10,0,0,0">
+                <Label Text="Vade (Ay):" 
+                       VerticalOptions="Center" 
+                       FontSize="16"
+                       WidthRequest="150"/>
+                <Entry x:Name="TermEntry" 
+                       Keyboard="Numeric"
+                       Placeholder="Örn: 36"
+                       WidthRequest="200"
+                       HorizontalOptions="Start"/>
+            </HorizontalStackLayout>
+
+            <!-- Vade Slider -->
+            <Slider x:Name="TermSlider"
+                    Minimum="1"
+                    Maximum="100"
+                    Value="12"
+                    MinimumTrackColor="Purple"
+                    MaximumTrackColor="LightGray"
+                    ThumbColor="Purple"
+                    Margin="20,0,20,0"
+                    ValueChanged="OnTermSliderValueChanged"/>
+
+            <!-- Ödeme Bilgileri -->
+            <VerticalStackLayout Spacing="15" Margin="0,20,0,0">
+                <!-- Aylık Taksit -->
+                <HorizontalStackLayout Spacing="10" Padding="10,0,0,0">
+                    <Label Text="Aylık Taksit:" 
+                           VerticalOptions="Center" 
+                           FontSize="16"
+                           WidthRequest="150"/>
+                    <Label x:Name="MonthlyPaymentLabel" 
+                           Text="0 TL"
+                           FontSize="16"
+                           FontAttributes="Bold"/>
+                </HorizontalStackLayout>
+
+                <!-- Toplam Ödeme -->
+                <HorizontalStackLayout Spacing="10" Padding="10,0,0,0">
+                    <Label Text="Toplam Ödeme:" 
+                           VerticalOptions="Center" 
+                           FontSize="16"
+                           WidthRequest="150"/>
+                    <Label x:Name="TotalPaymentLabel" 
+                           Text="0 TL"
+                           FontSize="16"
+                           FontAttributes="Bold"/>
+                </HorizontalStackLayout>
+
+                <!-- Toplam Faiz -->
+                <HorizontalStackLayout Spacing="10" Padding="10,0,0,0">
+                    <Label Text="Toplam Faiz:" 
+                           VerticalOptions="Center" 
+                           FontSize="16"
+                           WidthRequest="150"/>
+                    <Label x:Name="TotalInterestLabel" 
+                           Text="0 TL"
+                           FontSize="16"
+                           FontAttributes="Bold"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- Hesapla Butonu -->
+            <Button Text="Hesapla"
+                    BackgroundColor="Purple"
+                    TextColor="White"
+                    FontSize="16"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    HorizontalOptions="Fill"
+                    Margin="0,30,0,0"
+                    Clicked="OnCalculateClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+
